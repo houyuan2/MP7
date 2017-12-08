@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
+import javax.swing.JOptionPane;
 public class GUIWindow extends JFrame{
 private Calculation tool = new Calculation();
 	
@@ -48,16 +48,16 @@ private Calculation tool = new Calculation();
 			String inputB = aField.getText();
 			double velocity = Double.parseDouble(inputA);
 			double angle = Double.parseDouble(inputB);
-			tool.setVelocity(velocity);
-			tool.setAngle(angle);
-			double equation = tool.range ();
-			double equation2 = tool.totalTime();
-			double equation3 = tool.maxHeightTime();
-			double equation4 = tool.maxHeight();
-			resultRF.setText (""+ equation);
-			resultT1F.setText (""+ equation2);
-			resultT2F.setText (""+ equation3);
-			resultHF.setText (""+ equation4);
+			if (velocity < 0 || angle < 0 || angle > 180) {
+				JOptionPane.showMessageDialog(null, "Bad Inputs", "Error", JOptionPane.INFORMATION_MESSAGE);
+			} else {
+				tool.setVelocity(velocity);
+				tool.setAngle(angle);
+				resultRF.setText (""+ tool.range ());
+				resultT1F.setText (""+ tool.totalTime());
+				resultT2F.setText (""+ tool.maxHeightTime());
+				resultHF.setText (""+ tool.maxHeight());
 			}
+		}
 	}
 }
