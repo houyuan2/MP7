@@ -5,12 +5,12 @@ import javax.swing.JOptionPane;
 public class GUIWindow extends JFrame{
 private Calculation tool = new Calculation();
 	
-	private JLabel vLabel = new JLabel("Initial Velocity");
-	private JLabel aLabel = new JLabel("Angle of Projection");
-	private JLabel resultR = new JLabel("Range of Projection");
-	private JLabel resultT1 = new JLabel("Time of Projection");
-	private JLabel resultT2 = new JLabel("Time to reach maximum height");
-	private JLabel resultH = new JLabel("Maximum Height");
+	private JLabel vLabel = new JLabel("Initial Velocity (m/s)");
+	private JLabel aLabel = new JLabel("Angle of Projection (degree)");
+	private JLabel resultR = new JLabel("Range of Projection (m)");
+	private JLabel resultT1 = new JLabel("Time of Projection (m)");
+	private JLabel resultT2 = new JLabel("Time to reach maximum height(m)");
+	private JLabel resultH = new JLabel("Maximum Height (m)");
 	private JTextField vField = new JTextField();
 	private JTextField aField = new JTextField();
 	private JTextField resultRF = new JTextField();
@@ -36,9 +36,8 @@ private Calculation tool = new Calculation();
 		panel.add (resultHF);
 		JPanel buttonPanel = new JPanel ();
 		buttonPanel.add (cal);
-		Container container = this.getContentPane ();
-		container.add (panel, BorderLayout.CENTER);
-		container.add (buttonPanel, BorderLayout.SOUTH);
+		this.getContentPane().add (panel, BorderLayout.CENTER);
+		this.getContentPane().add (buttonPanel, BorderLayout.SOUTH);
 		cal.addActionListener (new calListener ());
 	}
 	
